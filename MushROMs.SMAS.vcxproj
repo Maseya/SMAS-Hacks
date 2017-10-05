@@ -1,0 +1,212 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <Keyword>MakeFileProj</Keyword>
+    <ProjectGuid>{D90CD02F-EB17-5410-CDD7-A84B7F905E9E}</ProjectGuid>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <NMakePreprocessorDefinitions>WIN32;_DEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
+    <NMakeBuildCommandLine>xkas.exe "smas.asm" "Backup\smas.smc" "smas.smc"</NMakeBuildCommandLine>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <NMakePreprocessorDefinitions>WIN32;NDEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <None Include="smas.asm" />
+    <None Include="smb1\defs.asm" />
+    <None Include="smb1\gfx\default\GFX00.lz2" />
+    <None Include="smb1\gfx\default\GFX01.lz2" />
+    <None Include="smb1\gfx\default\GFX02.lz2" />
+    <None Include="smb1\gfx\default\GFX03.lz2" />
+    <None Include="smb1\gfx\default\GFX04.lz2" />
+    <None Include="smb1\gfx\default\GFX05.lz2" />
+    <None Include="smb1\gfx\default\GFX06.lz2" />
+    <None Include="smb1\gfx\default\GFX07.lz2" />
+    <None Include="smb1\gfx\default\GFX08.lz2" />
+    <None Include="smb1\gfx\default\GFX09.lz2" />
+    <None Include="smb1\gfx\default\GFX0A.lz2" />
+    <None Include="smb1\gfx\default\GFX0B.lz2" />
+    <None Include="smb1\gfx\default\GFX0C.lz2" />
+    <None Include="smb1\gfx\default\GFX0D.lz2" />
+    <None Include="smb1\gfx\default\GFX0E.lz2" />
+    <None Include="smb1\gfx\default\GFX0F.lz2" />
+    <None Include="smb1\gfx\default\GFX10.lz2" />
+    <None Include="smb1\gfx\default\GFX11.lz2" />
+    <None Include="smb1\gfx\default\GFX12.lz2" />
+    <None Include="smb1\gfx\default\GFX13.lz2" />
+    <None Include="smb1\gfx\default\GFX14.lz2" />
+    <None Include="smb1\gfx\default\GFX15.lz2" />
+    <None Include="smb1\gfx\default\GFX16.lz2" />
+    <None Include="smb1\gfx\default\GFX17.lz2" />
+    <None Include="smb1\gfx\default\GFX18.lz2" />
+    <None Include="smb1\gfx\default\GFX19.lz2" />
+    <None Include="smb1\gfx\default\GFX1A.lz2" />
+    <None Include="smb1\gfx\default\GFX1B.lz2" />
+    <None Include="smb1\gfx\default\GFX1C.lz2" />
+    <None Include="smb1\gfx\default\GFX1D.lz2" />
+    <None Include="smb1\gfx\default\GFX1E.lz2" />
+    <None Include="smb1\gfx\default\GFX1F.lz2" />
+    <None Include="smb1\gfx\default\GFX20.lz2" />
+    <None Include="smb1\gfx\default\GFX21.lz2" />
+    <None Include="smb1\gfx\default\GFX22.lz2" />
+    <None Include="smb1\gfx\default\GFX23.lz2" />
+    <None Include="smb1\gfx\default\GFX24.lz2" />
+    <None Include="smb1\gfx\default\GFX25.lz2" />
+    <None Include="smb1\gfx\default\GFX26.lz2" />
+    <None Include="smb1\gfx\default\GFX27.lz2" />
+    <None Include="smb1\gfx\default\GFX28.lz2" />
+    <None Include="smb1\gfx\default\GFX29.lz2" />
+    <None Include="smb1\gfx\default\GFX2A.lz2" />
+    <None Include="smb1\gfx\default\GFX2B.lz2" />
+    <None Include="smb1\gfx\Files.asm" />
+    <None Include="smb1\gfx\Files_Locs.asm" />
+    <None Include="smb1\gfx\Files_Ptrs.asm" />
+    <None Include="smb1\gfx\GFX.asm" />
+    <None Include="smb1\gfx\LZ2.asm" />
+    <None Include="smb1\gfx\Static.asm" />
+    <None Include="smb1\gfx\Tables.asm" />
+    <None Include="smb1\gfx\tables\Object1.bin" />
+    <None Include="smb1\gfx\tables\Object2.bin" />
+    <None Include="smb1\gfx\tables\Object3.bin" />
+    <None Include="smb1\gfx\tables\Object4.bin" />
+    <None Include="smb1\gfx\tables\Object5.bin" />
+    <None Include="smb1\gfx\tables\Sprite1.bin" />
+    <None Include="smb1\gfx\tables\Sprite2.bin" />
+    <None Include="smb1\gfx\tables\Sprite3.bin" />
+    <None Include="smb1\gfx\tables\Sprite4.bin" />
+    <None Include="smb1\gfx\tables\Static.bin" />
+    <None Include="smb1\levels\Levels.asm" />
+    <None Include="smb1\levels\Static.asm" />
+    <None Include="smb1\levels\tiles\Castle.bin" />
+    <None Include="smb1\levels\tiles\CastleStairs.bin" />
+    <None Include="smb1\levels\tiles\GroundObjects.bin" />
+    <None Include="smb1\levels\tiles\HorizontalObjects.bin" />
+    <None Include="smb1\levels\tiles\IslandCap.bin" />
+    <None Include="smb1\levels\tiles\L-Pipe.bin" />
+    <None Include="smb1\levels\tiles\LongL-Pipe.bin" />
+    <None Include="smb1\levels\tiles\Pipes.bin" />
+    <None Include="smb1\levels\tiles\Rectangular.bin" />
+    <None Include="smb1\levels\tiles\SingleTileObjects.bin" />
+    <None Include="smb1\map16\default\Map16.bin" />
+    <None Include="smb1\map16\default\Map16G.bin" />
+    <None Include="smb1\map16\Map16.asm" />
+    <None Include="smb1\maps\default\Map25.bin" />
+    <None Include="smb1\maps\enemy\default\Enemy00.bin" />
+    <None Include="smb1\maps\enemy\default\Enemy01.bin" />
+    <None Include="smb1\maps\enemy\default\Enemy02.bin" />
+    <None Include="smb1\maps\enemy\default\Enemy20.bin" />
+    <None Include="smb1\maps\enemy\default\Enemy21.bin" />
+    <None Include="smb1\maps\enemy\default\Enemy22.bin" />
+    <None Include="smb1\maps\enemy\default\Enemy23.bin" />
+    <None Include="smb1\maps\enemy\default\Enemy24.bin" />
+    <None Include="smb1\maps\enemy\default\Enemy25.bin" />
+    <None Include="smb1\maps\enemy\default\Enemy26.bin" />
+    <None Include="smb1\maps\enemy\default\Enemy27.bin" />
+    <None Include="smb1\maps\enemy\default\Enemy28.bin" />
+    <None Include="smb1\maps\enemy\default\Enemy29.bin" />
+    <None Include="smb1\maps\enemy\default\Enemy2A.bin" />
+    <None Include="smb1\maps\enemy\default\Enemy2B.bin" />
+    <None Include="smb1\maps\enemy\default\Enemy2C.bin" />
+    <None Include="smb1\maps\enemy\default\Enemy2D.bin" />
+    <None Include="smb1\maps\enemy\default\Enemy2E.bin" />
+    <None Include="smb1\maps\enemy\default\Enemy2F.bin" />
+    <None Include="smb1\maps\enemy\default\Enemy30.bin" />
+    <None Include="smb1\maps\enemy\default\Enemy31.bin" />
+    <None Include="smb1\maps\enemy\default\Enemy32.bin" />
+    <None Include="smb1\maps\enemy\default\Enemy33.bin" />
+    <None Include="smb1\maps\enemy\default\Enemy34.bin" />
+    <None Include="smb1\maps\enemy\default\Enemy35.bin" />
+    <None Include="smb1\maps\enemy\default\Enemy40.bin" />
+    <None Include="smb1\maps\enemy\default\Enemy41.bin" />
+    <None Include="smb1\maps\enemy\default\Enemy42.bin" />
+    <None Include="smb1\maps\enemy\default\Enemy60.bin" />
+    <None Include="smb1\maps\enemy\default\Enemy61.bin" />
+    <None Include="smb1\maps\enemy\default\Enemy62.bin" />
+    <None Include="smb1\maps\enemy\default\Enemy63.bin" />
+    <None Include="smb1\maps\enemy\default\Enemy64.bin" />
+    <None Include="smb1\maps\enemy\default\Enemy65.bin" />
+    <None Include="smb1\maps\enemy\Files.asm" />
+    <None Include="smb1\maps\enemy\Files_Locs.asm" />
+    <None Include="smb1\maps\enemy\Files_Ptrs.asm" />
+    <None Include="smb1\maps\Files.asm" />
+    <None Include="smb1\maps\Files_Locs.asm" />
+    <None Include="smb1\maps\Files_Ptrs.asm" />
+    <None Include="smb1\maps\Maps.asm" />
+    <None Include="smb1\maps\Static.asm" />
+    <None Include="smb1\maps\tables\Maps.bin" />
+    <None Include="smb1\maps\tables\MaxLevels.bin" />
+    <None Include="smb1\maps\tables\MaxWorlds.bin" />
+    <None Include="smb1\palette\default\Palette00.bin" />
+    <None Include="smb1\palette\default\Palette01.bin" />
+    <None Include="smb1\palette\default\Palette02.bin" />
+    <None Include="smb1\palette\default\Palette20.bin" />
+    <None Include="smb1\palette\default\Palette21.bin" />
+    <None Include="smb1\palette\default\Palette22.bin" />
+    <None Include="smb1\palette\default\Palette23.bin" />
+    <None Include="smb1\palette\default\Palette24.bin" />
+    <None Include="smb1\palette\default\Palette25.bin" />
+    <None Include="smb1\palette\default\Palette26.bin" />
+    <None Include="smb1\palette\default\Palette27.bin" />
+    <None Include="smb1\palette\default\Palette28.bin" />
+    <None Include="smb1\palette\default\Palette29.bin" />
+    <None Include="smb1\palette\default\Palette2A.bin" />
+    <None Include="smb1\palette\default\Palette2B.bin" />
+    <None Include="smb1\palette\default\Palette2C.bin" />
+    <None Include="smb1\palette\default\Palette2D.bin" />
+    <None Include="smb1\palette\default\Palette2E.bin" />
+    <None Include="smb1\palette\default\Palette2F.bin" />
+    <None Include="smb1\palette\default\Palette30.bin" />
+    <None Include="smb1\palette\default\Palette31.bin" />
+    <None Include="smb1\palette\default\Palette32.bin" />
+    <None Include="smb1\palette\default\Palette33.bin" />
+    <None Include="smb1\palette\default\Palette34.bin" />
+    <None Include="smb1\palette\default\Palette35.bin" />
+    <None Include="smb1\palette\default\Palette40.bin" />
+    <None Include="smb1\palette\default\Palette41.bin" />
+    <None Include="smb1\palette\default\Palette42.bin" />
+    <None Include="smb1\palette\default\Palette60.bin" />
+    <None Include="smb1\palette\default\Palette61.bin" />
+    <None Include="smb1\palette\default\Palette62.bin" />
+    <None Include="smb1\palette\default\Palette63.bin" />
+    <None Include="smb1\palette\default\Palette64.bin" />
+    <None Include="smb1\palette\default\Palette65.bin" />
+    <None Include="smb1\palette\default\Player.bin" />
+    <None Include="smb1\palette\Files.asm" />
+    <None Include="smb1\palette\Palette.asm" />
+    <None Include="smb1\SMB1.asm" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
