@@ -1,3 +1,3 @@
-xkas smas.asm Backup\smas.smc smas.smc
+xkas main.asm Backup\smas.smc smas.smc
 @pause
 cls
