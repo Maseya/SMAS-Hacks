@@ -1,3 +1,9 @@
+; <copyright file="GFX.asm" company="Public Domain">
+;     Copyright (c) 2019 Nelson Garcia. All rights reserved. Licensed under
+;     GNU Affero General Public License. See LICENSE in project root for full
+;     license information, or visit https://www.gnu.org/licenses/#AGPL
+; </copyright>
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;; This file installs a very complex custom GFX routine
@@ -27,7 +33,7 @@
 ;;
 ;; That is indeed a lot to cover and the length and true complexual
 ;; nature of the GFX.asm file (and it's sibling branches) will show
-;; that. 
+;; that.
 ;;
 ;; You can modify this, but be careful. A lot of what goes on in this
 ;; file is deeply integrated to other parts of the game.
@@ -60,7 +66,7 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
-;; This clears some old data and makes a 
+;; This clears some old data and makes a
 ;; few modications to certain bytes, as
 ;; well as jump to new routines when needed.
 ;;
@@ -71,7 +77,7 @@ ORG $03812B
 	REP $59 : NOP
 ORG $03812B
 	JSL InitGFX
-	
+
 ORG $049266
 	JSL LoadCutsceneGFX
 
@@ -80,7 +86,7 @@ ORG $049313
 
 ORG $049655
 	REP $03 : NOP
-	
+
 ;Changes which address to load the Player GFX from.
 ORG $04D834
 	dw !PlayerGFX1
@@ -107,7 +113,7 @@ ORG $05E687
 	db $7F
 ORG $05E699
 	db $AB
-	
+
 ORG $05E6AF
 	REP $01CA : NOP
 ORG $05E6B1
@@ -179,7 +185,7 @@ InitGFX:
 	STX.w $4300				;|
 	LDX.w #!MainGFX			;|
 	STX.b !Raw_Lo			;/
-	
+
 	LDX.w #!MiscGFX			;\
 	STX.b !Raw_Lo			;|!MiscGFX is a RAM location with a GFX file designed to never
 	LDX.w #$0026			;|change (unless you want it to). The purpose of this DMA transer
@@ -192,7 +198,7 @@ InitGFX:
 	STX.w $4305				;|is for experience users only.
 	LDA.b #$01				;|
 	STA.w $420B				;/
-	
+
 	LDY.w #$0006
 -
 	LDX.w AnimGFX_Table1,y	;\
@@ -201,12 +207,12 @@ InitGFX:
 	JSR DoDecompress		;|not doing a DMA transfer. Just writing the animated GFX to the desired RAM location.
 	REP 2 : DEY				;|The game takes care of the actual anmation when the event occurs.
 	BPL -					;/
-	
+
 	LDX.w #!PrincessGFX		;\
 	STX.b !Raw_Lo			;|This is also straightforward: Take GFX file $000E (saved princess cutscene GFX) and
 	LDX.w #$000E			;|save it to #!PrincessGFX. The game will load it when the even occurs.
 	JSR DoDecompress		;/
-	
+
 	PLP
 	PLB
 	RTL
@@ -228,7 +234,7 @@ LoadCutsceneGFX:
 	PLB
 	REP #$10
 	SEP #$20
-	
+
 	LDA.b #$80				;\
 	STA.w $2115				;|Sets up a DMA transfer for the cutscene.
 	LDA.b #$7F				;|If you are unsure why !MainGFX is always used,
@@ -239,7 +245,7 @@ LoadCutsceneGFX:
 	LDX.w #!MainGFX			;|if you have a way which suites what you need done).
 	STX.b !Raw_Lo			;|
 	STX.w $4302				;/
-	
+
 	LDX.w #$0011			;GFX011 is the Game Over/Time Up GFX
 	JSR DoDecompress
 	LDX.w #$3400
@@ -248,7 +254,7 @@ LoadCutsceneGFX:
 	STX.w $4305
 	LDA.b #$01
 	STA.w $420B
-	
+
 	LDX.w #!MainGFX+$800
 	STX.w $4302
 	LDX.w #$001B			;GFX01B also has Game Over/Time Up GFX
@@ -259,7 +265,7 @@ LoadCutsceneGFX:
 	STX.w $4305
 	LDA.b #$01
 	STA.w $420B
-	
+
 	PLB
 	PLP
 	RTL
@@ -282,7 +288,7 @@ LoadLevelGFX:
 	PHK
 	PLB
 	REP #$10
-	SEP #$20	
+	SEP #$20
 	PEI (!Dest_Bk_Flag)		;\
 	PEI (!Dest_Bk)			;|Pushes the primary addresses we will be using
 	PEI (!OP_JMP)			;|onto the stack to avoid any data loss and
@@ -292,7 +298,7 @@ LoadLevelGFX:
 	PEI (!LZ2_Lo)			;|
 	PEI (!LZ2_Bk)			;|
 	PEI (!Length+1)			;/
-	
+
 	LDA.w $0750
 	AND.b #$7F
 	STA.b !Raw_Lo
@@ -306,7 +312,7 @@ LoadLevelGFX:
 +
 	LDA.b !Raw_Lo
 	JSR.w InsertLevelGFX
-	
+
 	LDY.w #$0002
 -
 	LDX.w PlayerGFX_Table1,y	;The objective of this loop is to determine which player
@@ -378,7 +384,7 @@ LoadPreviewLevelGFX:
 	PLP
 	PLB
 	RTL
-	
+
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -398,7 +404,7 @@ InsertLevelGFX:
 	REP #$30
 	AND.w #$00FF
 	STA.b $00
-	
+
 	SEP #$20
 	LDX.w #!MainGFX			;\
 	STX.b !Raw_Lo			;|Sets up !MainGFX for several DMA Transfers.
@@ -409,7 +415,7 @@ InsertLevelGFX:
 	STA.w $2115				;|This was not an easy algorithm to set up and I'm sure
 	LDX.w #$1801			;|it could use some work.
 	STX.w $4300				;/
-	
+
 	LDY.w #$000E
 -
 	REP #$30				;We keep the REP in the loop because the status register will change.
@@ -442,8 +448,8 @@ InsertLevelGFX:
 	STA.w $420B				;/
 	REP 2 : DEY
 	BPL -
-	
-	REP #$30				
+
+	REP #$30
 	LDA.b $00
 	ASL A
 	TAX
@@ -475,7 +481,7 @@ InsertLevelGFX:
 	STX.w $4305
 	LDA.b #$01
 	STA.w $420B
-	
+
 	REP #$30
 	PLA
 	STA $00

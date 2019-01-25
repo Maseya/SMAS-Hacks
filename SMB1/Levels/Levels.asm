@@ -1,3 +1,9 @@
+; <copyright file="Levels.asm" company="Public Domain">
+;     Copyright (c) 2019 Nelson Garcia. All rights reserved. Licensed under
+;     GNU Affero General Public License. See LICENSE in project root for full
+;     license information, or visit https://www.gnu.org/licenses/#AGPL
+; </copyright>
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;; This file is the crowned jewel of my labor. Even more so than
@@ -6,7 +12,7 @@
 ;; is to mainly throw out the entire level loading system SMB1
 ;; used to use. It was very narrow and didn't allow for much.
 ;; Certainly leaving it would have lead to a very limited editor.
-;; Simply fixing the limitations was not an option either, as 
+;; Simply fixing the limitations was not an option either, as
 ;; they were too hardcoded into the routines and would be
 ;; ridiculous to even want to do. Therefore, my only option was
 ;; a total and complete rewrite (what you see before you). While
@@ -73,7 +79,7 @@ LevelASM:
 	BPL -                   ;/
 	STZ.w !objX             ;Initialize !objX to zero
 	STZ.w !Index            ;Ininitialize !Index to zero
-	LDA.w !ScreenX          
+	LDA.w !ScreenX
 	AND.w #$000F
 	STA.w !lvlX
 	LDA.w !ScreenP
@@ -239,7 +245,7 @@ LoadObject:
 
 .stairs
 	JSL.l CastleSairsObject
-	JMP.w LoadObject 
+	JMP.w LoadObject
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -399,7 +405,7 @@ HorizontalObject:
 	LDA.b #$B0
 	STA.w $010D
 	LDA.b #$30
-	STA.b $21	
+	STA.b $21
 	INC.b $15
 	JSR.w FindSpriteSlot1
 	STA.b $9E
@@ -570,7 +576,7 @@ ExtendableObject:
 +++
 	JMP.w LoadObject
 
-	
+
 .pipetiles
 	incbin SMB1\Levels\Tiles\Pipes.bin
 .pipe
@@ -986,7 +992,7 @@ LongWarpZoneTextJump:
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 CODE03ACF6_table1:
 	db $00,$D0
-CODE03ACF6_table2:	
+CODE03ACF6_table2:
 	db $05,$05
 CODE03ACF6:
 	PHA
@@ -1037,7 +1043,7 @@ SmallCastleObject:
 	STA.l !TileAddr,x
 +
 	REP 2 : INX
-	INY 
+	INY
 	DEC.b !objH
 	BPL -
 	JMP CastleFlagSprite
@@ -1073,7 +1079,7 @@ BigCastleObject:
 	STA.l !TileAddr,x
 +
 	REP 2 : INX
-	INY 
+	INY
 	DEC.b !objH
 	BPL -
 	JMP CastleFlagSprite
@@ -1118,7 +1124,7 @@ CastleFlagSprite:
 ++
 	PLB
 	RTL
-	
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -1155,7 +1161,7 @@ CastleSairsObject:
 	STA.l !TileAddr,x
 +
 	REP 2 : INX
-	INY 
+	INY
 	DEC.b !objH
 	BPL	-
 	PLB

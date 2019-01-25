@@ -1,3 +1,9 @@
+; <copyright file="Files.asm" company="Public Domain">
+;     Copyright (c) 2019 Nelson Garcia. All rights reserved. Licensed under
+;     GNU Affero General Public License. See LICENSE in project root for full
+;     license information, or visit https://www.gnu.org/licenses/#AGPL
+; </copyright>
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;; THIS IS A FUNDAMENTAL DATA FILE. DO NOT MODIFY IT!
@@ -10,7 +16,7 @@
 ;; up to $1000 GFX files which should be more than
 ;; what anyone would need thankfully.
 ;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ORG !GFX_Files
 GFX000:
 incbin SMB1\GFX\Default\GFX00.lz2

@@ -1,3 +1,9 @@
+; <copyright file="Maps.asm" company="Public Domain">
+;     Copyright (c) 2019 Nelson Garcia. All rights reserved. Licensed under
+;     GNU Affero General Public License. See LICENSE in project root for full
+;     license information, or visit https://www.gnu.org/licenses/#AGPL
+; </copyright>
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;; The custom map ASM was actually my first SMAS
@@ -173,7 +179,7 @@ WriteMapData:
 	LDA.b [$FA],y
 	AND.b #$0F
 	INC A
-	STA.w $07EB	
+	STA.w $07EB
 ++
 	INY
 	LDA.b [$FA],y

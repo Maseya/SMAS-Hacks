@@ -1,3 +1,9 @@
+; <copyright file="defs.asm" company="Public Domain">
+;     Copyright (c) 2019 Nelson Garcia. All rights reserved. Licensed under
+;     GNU Affero General Public License. See LICENSE in project root for full
+;     license information, or visit https://www.gnu.org/licenses/#AGPL
+; </copyright>
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;; I've made several new routines and tables which
@@ -14,7 +20,7 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
-;; Addresses of routines 
+;; Addresses of routines
 ;; involving Palettes go here.
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;

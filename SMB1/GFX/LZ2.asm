@@ -1,3 +1,9 @@
+; <copyright file="LZ2.asm" company="Public Domain">
+;     Copyright (c) 2019 Nelson Garcia. All rights reserved. Licensed under
+;     GNU Affero General Public License. See LICENSE in project root for full
+;     license information, or visit https://www.gnu.org/licenses/#AGPL
+; </copyright>
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;; The new LZ2 Decompression routine is designed to use
@@ -108,7 +114,7 @@ DecompressGFXPage:
 	PHA
 	PLB
 	STA.b !Dest_Bk
-	INC 
+	INC
 	STA.b !Dest_Bk_Flag
 	LDA.b #$54			;The MVN opcode byte
 	STA.b !OP_MVN
@@ -118,13 +124,13 @@ DecompressGFXPage:
 	STA.b !Source_Bk
 	LDX.w #.back+!GFX_LZ2RAM-DecompressGFXPage		;The address of where the RAM JMP will go to.
 	STX.b !JMP_Dest
-	
+
 	LDY.b !Raw_Lo
 	LDX.b !LZ2_Lo
 	STZ.b !LZ2_Lo
 	STZ.b !LZ2_Hi
 	BRA .main
-	
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;; Command 7:
@@ -144,14 +150,14 @@ DecompressGFXPage:
 	STA.b !Length		;/
 	XBA
 	BRA .type			;The remaining bits are the command, which will be checked at .type
-	
+
 .case_80_or_E0
 	BPL .lz
 	LDA.b !Length
 	CMP.b #$1F
 	BNE .case_E0
 	JMP .end
-	
+
 .lz
 	%ReadByte()
 	XBA
@@ -170,14 +176,14 @@ DecompressGFXPage:
 	MVN $7E7E
 ++
 	LDX.b !LZ2_Wd_Temp
-	
+
 .main
 	%ReadByte()
 	STA.b !Length
 	STZ.b !Length+1
 	AND.b #%11100000
 	TRB.b !Length
-	
+
 .type
 	ASL A
 	BCS .case_80_or_E0
@@ -188,7 +194,7 @@ DecompressGFXPage:
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;	
+;;
 ;; Command 0:
 ;; Writes a direct copy of bytes
 ;; from the LZ2 data to raw data
@@ -206,12 +212,12 @@ DecompressGFXPage:
 .back
 	CPX.b !Length
 	BCS .main
-	
+
 	INC.b !Source_Bk
 	INC.b !LZ2_Bk
 	CPX #$0000
 	BEQ ++
-	
+
 	DEX
 	STX.b !LZ2_Wd_Temp
 	REP #$21
@@ -225,7 +231,7 @@ DecompressGFXPage:
 ++
 	LDX #$8000
 	BRA .main
-	
+
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -240,13 +246,13 @@ DecompressGFXPage:
 	PHA				;Pushes the byte value to the stack twice
 	PHA				;(for word copy instead of byte copy)
 	REP #$20
-	
+
 .case_20_main
 	LDA.b !Length	;\
 	INC				;|Gets the length and halves it
 	LSR A			;|because we are writing words (not bytes)
 	TAX				;/
-	
+
 	PLA
 -
 	STA $0000,y		;\
@@ -254,7 +260,7 @@ DecompressGFXPage:
 	INY				;|address ($0000 + y-index) and repeats for half the !Length
 	DEX				;|value (word coppy instead of byte).
 	BNE -			;/
-	
+
 	SEP #$20		;\
 	BCC +			;|If the Length had an odd remainder, this extra command will write
 	STA $0000,y		;|the remaining byte.
@@ -262,7 +268,7 @@ DecompressGFXPage:
 +
 	LDX.b !LZ2_Wd_Temp
 	BRA .main
-	
+
 .case_40_or_60
 	ASL A
 	BMI .case_60
@@ -284,9 +290,9 @@ DecompressGFXPage:
 	REP #$20
 	PHA
 	BRA .case_20_main
-	
-	
-	
+
+
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;; Command 3:
@@ -306,7 +312,7 @@ DecompressGFXPage:
 	BPL -
 	LDX.b !LZ2_Wd_Temp
 	JMP .main
-	
+
 .end
 	PLX : STX.b !Length+1		;\
 	PLX : STX.b !LZ2_Bk			;|Returns all stack values to their

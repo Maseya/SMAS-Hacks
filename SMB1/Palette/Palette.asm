@@ -1,3 +1,9 @@
+; <copyright file="Palette.asm" company="Public Domain">
+;     Copyright (c) 2019 Nelson Garcia. All rights reserved. Licensed under
+;     GNU Affero General Public License. See LICENSE in project root for full
+;     license information, or visit https://www.gnu.org/licenses/#AGPL
+; </copyright>
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;; The Custom Palette ASM was executed with quick success
@@ -64,7 +70,7 @@ LoadLevelPalette:
 	REP 3 : ROR A
 	ADC.b $00
 	BRA PaletteASM
-	
+
 LoadPreviewLevelPalette:
 	JSL.l LoadPreviewLevel
 
@@ -87,7 +93,7 @@ PaletteASM:
 	ASL A					;|it's double the level number ($00-$3F). Then, because
 	ORA.b #$80				;|this is a LOROM game, it must be at at least $8000.
 	STA.b !Pointer_Hi		;/
-	
+
 	REP #$30
 	LDY.w #$0000
 -
